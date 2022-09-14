@@ -26,7 +26,7 @@ jobs:
         cp doaj.csv doaj-old.csv
         curl -o doaj.csv -L https://doaj.org/csv
         # Generate commit message using csv-diff
-        csv-diff doaj-old.csv doaj.csv --key "URL in DOAJ" --encoding "utf-8" --singular=journal --plural=journals > message.txt
+        csv-diff doaj-old.csv doaj.csv --key "URL in DOAJ" --encoding "utf-8" --singular=journal --plural=journals | head -n 1 > message.txt
     - name: Commit and push if it changed
       run: |-
         git config user.name "Automated"
