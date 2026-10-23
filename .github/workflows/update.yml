@@ -11,16 +11,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Check out this repo
-      uses: actions/checkout@v3
+      uses: actions/checkout@v7
       with:
         fetch-depth: 0
     - name: Set up Python
-      uses: actions/setup-python@v4.3.0
+      uses: actions/setup-python@v7.1.0
       with:
-        python-version: 3.8
+        python-version: '3.15'
     - name: Install Python dependencies
       # Install csv-diff with https://github.com/simonw/csv-diff/pull/19
-      run: python3 -m pip install git+https://github.com/mikecoop83/csv-diff@c3d32f758343a2ba3737d612e6e906fd9d77322b
+      run: pip install git+https://github.com/mikecoop83/csv-diff@c3d32f758343a2ba3737d612e6e906fd9d77322b
     - name: Fetch latest data
       run: |-
         cp doaj.csv doaj-old.csv
